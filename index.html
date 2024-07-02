@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>To-Do List</h2>
+        <input type="text" name="" id="add">
+        <button onclick="myvalue()">Enter</button>
+        <ul id="list"></ul>
+    </div>
+
+
+    <script>
+        function myvalue() {
+            var get = document.getElementById('add').value;
+            const li = document.createElement('li');
+            li.innerHTML = ` ${get} 
+            <button class="remove-btn">Remove</button>
+            `
+            if (get === '') {
+                alert('Enter some thing')
+            } else {
+                // here append the li intp ul
+
+                const ul = document.getElementById('list');
+                ul.appendChild(li)
+                document.getElementById('add').value = ''
+
+                // now create a remove button
+                
+                var rem = li.querySelector('.remove-btn');
+                rem.addEventListener('click', function () {
+                    ul.removeChild(li)
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>
